@@ -2,10 +2,15 @@
 #include <iostream>
 
 int main() {
-    shared_ptr<wstring> s2 = make_shared<wstring>(L"polynomial");
-    shared_ptr<wstring> s1 = make_shared<wstring>(L"exponential");
-    size_t res = damerauLoeNonRec(s1, s2);
-    cout << res << endl;
-    cout << loeNonRec(s1, s2);
+    shared_ptr<wstring> s2 = make_shared<wstring>(L"");
+    shared_ptr<wstring> s1 = make_shared<wstring>(L"FDBGBG");
+    size_t res = loeNonRec(s1, s2);
+    cout << "Нерекурсивный Левенштейн: " << res << endl;
+    res = damerauLoeNonRec(s1, s2);
+    cout << "Нерекурсивный Дамерау: " << res << endl;
+    res = damerauLoeRec(s1, s2);
+    cout << "Рекурсивный Дамерау: " << res << endl;
+    res = damerauLoeRecMem(s1, s2);
+    cout << "Рекурсивный Дамерау c кэшем: " << res << endl;
 
 }
